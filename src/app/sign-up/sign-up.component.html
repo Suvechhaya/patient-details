@@ -1,0 +1,93 @@
+<div class="container-fluid sign-up-container">
+  <div class="row">
+    <div class="col-12">
+      <div class="topbar">
+        <div class="logo">
+          <img src="../../assets/images/dental-health.png" />
+        </div>
+        <div class="title">
+          <h5 class="font-weight-bold">Myleena's Patient Details</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="sign-up-wrapper">
+        <div class="col-12 col-md-4">
+          <div class="sign-up-form">
+            <h2>Create your Account</h2>
+            <form>
+              <div class="row">
+                <div class="col-12">
+                  <div class="input-group mt-3 pl-4">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-user"></i></div>
+                    </div>
+                    <input name="username" type="text" id="username" placeholder="Enter your username here" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <div class="input-group mt-3 pl-4">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+                    </div>
+                    <input name="email" type="text" id="email" placeholder="Enter your email here" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <div class="input-group mt-3 pl-4">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                    </div>
+                    <input name="password" type="password" id="password" placeholder="Enter your password here" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <div class="input-group mt-3 pl-4">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                    </div>
+                    <input
+                      name="confirmpassword"
+                      type="password"
+                      id="confirmpassword"
+                      placeholder="Re-enter your password here"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mt-3 pl-3">
+                  <button type="submit" class="btn btn-primary btn-sign-up" [routerLink]="['/patient-form']">
+                    SIGN UP
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div class="row">
+            <div class="col-12 mt-3 pl-3">
+              <div class="sign-in-option">
+                <span>Already have an account? </span>
+                <a [routerLink]="['/']">Sign In!</a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
