@@ -1,0 +1,96 @@
+@import "../../styles";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.patient-record-container {
+  height: 100vh;
+}
+
+.topbar {
+  background-color: $app-primary-color;
+  display: flex;
+  height: 100%;
+}
+
+img {
+  width: 75px;
+}
+
+.title {
+  color: $white;
+  margin: auto 0;
+}
+
+.add-patient-container {
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2%;
+}
+
+.patient-data {
+  padding: 0 2%;
+}
+
+table {
+  border-collapse: collapse;
+
+  // margin-top: 1%;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid $grey-md;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: $blue-deep;
+  color: $white;
+}
+
+tr:nth-child(even) {
+  background-color: $grey-md;
+}
+
+span {
+  font-size: 20px;
+  justify-content: center;
+
+  .edit:hover {
+    color: $blue-deep;
+    cursor: pointer;
+  }
+
+  .delete {
+    margin-left: 30px;
+  }
+
+  .delete:hover {
+    color: $red-md;
+    cursor: pointer;
+  }
+}
+
+.btn-add {
+  background-color: $app-primary-color;
+  border: 0;
+  border-radius: 10px;
+  color: $white;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 1%;
+  min-width: 175px;
+  padding: 12px;
+}
+
+.modal-dialog {
+  // width: 700px;
+  margin-left: 50%;
+  align-self: center;
+  display: flex;
+}

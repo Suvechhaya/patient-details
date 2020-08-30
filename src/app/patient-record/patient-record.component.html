@@ -1,0 +1,77 @@
+<div class="container-fluid patient-record">
+  <div class="row">
+    <div class="col-12">
+      <div class="topbar">
+        <div class="logo">
+          <img src="../../assets/images/dental-health.png" />
+        </div>
+        <div class="title">
+          <h5 class="font-weight-bold">Myleena's Patient Details</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mt-2">
+      <div class="add-patient-container d-flex">
+        <h3>Patient Data</h3>
+        <button class="float-right btn-add" (click)="addPatient()" data-toggle="modal" data-target="#patientFormModal">
+          <i class="fa fa-plus mr-2"></i>ADD PATIENT
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="patient-data mt-1">
+        <table>
+          <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Telephone</th>
+            <th>Action</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Ramu</td>
+            <td>Patan</td>
+            <td>123456</td>
+            <td>
+              <span class="d-flex">
+                <i class="edit fa fa-edit"></i>
+                <i class="delete fa fa-trash"></i>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Samu</td>
+            <td>Palpa</td>
+            <td>8987665</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Namu</td>
+            <td>Kathamnudu</td>
+            <td>4567889</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----------MODAL STARTS HERE------------------->
+
+<div class="container mr-5" >
+  <div class="modal fade modal-lg" id="patientFormModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content text-center">
+        <app-patient-form></app-patient-form>
+      </div>
+    </div>
+  </div>
+</div>
