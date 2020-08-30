@@ -1,0 +1,271 @@
+<div class="container-fluid patient-form-container">
+  <div class="row">
+    <div class="col-12">
+      <div class="container patient-form">
+        <form>
+          <div class="row">
+            <div class="col-12">
+              <div class="personal-info">
+                <div class="input-group mt-3">
+                  <label>Patient's picture</label>
+                  <img [src]="imageUrl" (change)="handleFileInput($event)" height="150px">
+                  <input name="file" type="file" id="image" #Image accept="image/*" />
+                </div>
+
+                <div class="input-group mt-3">
+                  <label>Date</label>
+                  <input name="date" type="date" id="date" />
+                </div>
+              </div>
+
+              <div class="personal-info">
+                <div class="input-group mt-3">
+                  <label>Patient's Name</label>
+                  <input name="name" type="text" id="name" />
+                </div>
+
+                <div class="input-group mt-3">
+                  <label>Address</label>
+                  <input name="address" type="text" id="address" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="personal-info">
+                <div class="input-group mt-3">
+                  <label>Date of Birth</label>
+                  <input name="dob" type="date" id="dob" />
+                </div>
+
+                <div class="input-group mt-3">
+                  <label>Occupation</label>
+                  <input name="occupation" type="text" id="occupation" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="personal-info">
+                <div class="input-group mt-3">
+                  <label>Telephone</label>
+                  <input name="telephone" type="text" id="telephone" />
+                </div>
+
+                <div class="input-group mt-3">
+                  <label>Medical Status</label>
+                  <input name="medstatus" type="text" id="medstatus" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="personal-info">
+                <div class="input-group mt-3">
+                  <label>Description</label>
+                  <input name="description" type="text" id="description" />
+                </div>
+
+                <div class="input-group mt-3">
+                  <label>Accepted?</label>
+                  <input type="radio" id="yes" name="radio" value="yes" />
+                  <span>Yes</span>
+                  <input type="radio" id="no" name="radio" value="no" />
+                  <span>No</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mt-4">
+              <h4>Records</h4>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="record">
+              <div class="input-record mt-3">
+                <label>Impression</label>
+                <input name="impression" type="checkbox" id="impression" />
+              </div>
+
+              <div class="input-record mt-3">
+                <label>Date</label>
+                <input name="date" type="date" id="date" />
+              </div>
+
+              <div class="input-record mt-3">
+                <label>Paid</label>
+                <input name="paid" type="checkbox" id="paid" />
+              </div>
+
+              <div class="input-record mt-3">
+                <label>Cash Received</label>
+                <input name="cash" type="text" id="cash" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>X-Rays Received</label>
+                  <input name="xrays" type="checkbox" id="xrays" />
+                </div>
+
+                <div class="input-record mt-3">
+                  <label>Link to image</label>
+                  <input name="link" type="text" id="link" />
+                </div>
+
+                <div class="input-record mt-3">
+                  <label>Celp Analysis</label>
+                  <input name="celp" type="checkbox" id="celp" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Intra Oral Pictures</label>
+                  <input name="intraoral" type="checkbox" id="intraoral" />
+                </div>
+
+                <div class="input-record mt-3">
+                  <label>Date</label>
+                  <input name="intraoraldate" type="date" id="intraoraldate" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Extra Oral Pictures</label>
+                  <input name="extraoral" type="checkbox" id="extraoral" />
+                </div>
+
+                <div class="input-record mt-3">
+                  <label>Date</label>
+                  <input name="extraoraldate" type="date" id="extraoraldate" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Fill out manual form</label>
+                  <input name="manual" type="checkbox" id="manual" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Case Presentation</label>
+                  <input name="case" type="checkbox" id="case" />
+                </div>
+
+                <div class="input-record mt-3">
+                  <label>Presented to</label>
+                  <!-- <input name="case" type="submit" id="case" /> -->
+                  <select id="doctor" name="doctor">
+                    <option value="amr">Dr Amr</option>
+                    <option value="shaarawy">Dr Shrerief Shaarawy</option>
+                    <option value="oussey">Dr Oussey</option>
+                    <option value="heba">Dr Heba</option>
+                    <option value="hala">Dr Hala</option>
+                    <option value="kordy">Dr Sherief Kordy</option>
+                    <option value="amira">Dr Amira</option>
+                    <option value="fouad">Dr Fouad</option>
+                  </select>
+                </div>
+
+                <div class="input-record mt-3">
+                  <label>Date</label>
+                  <input name="date" type="date" id="date" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mt-4">
+              <h4>Treatment Plan</h4>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="treatment">
+                <div class="input-comment mt-3">
+                  <label>Date</label>
+                  <input name="date" type="date" id="date" />
+                </div>
+
+                <div class="input-plan mt-3">
+                  <label>Comments</label>
+                  <input name="comment" type="textarea" id="comment" placeholder="Add comments here." />
+                </div>
+              </div>
+
+              <div class="treatment d-flex">
+                <div class="input-plan mt-3">
+                  <label>Ready for bonding?</label>
+                  <input name="bonding" type="checkbox" id="bonding" (change)="readyToBond()" />
+                </div>
+
+                <div class="input-plan mt-3 ml-5">
+                  <label>Thesis?</label>
+                  <input type="radio" id="yes" name="radio" value="yes" />
+                  <span>Yes</span>
+                  <input type="radio" id="no" name="radio" value="no" />
+                  <span>No</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mt-4 mb-2">
+              <div class="add-appointment-container d-flex" *ngIf="bonding">
+                <h5>Bonding appointment Date</h5>
+                <div class="float-right btn-add p-3" (click)="addAppointment()">
+                  <i class="fa fa-plus mr-2"></i>ADD APPOINTMENT
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="bonding-appointment" *ngIf="bonding && appointmentModal">
+                <div *ngFor= 'let vs of visitSummary'>
+                  <app-bonding-appointment></app-bonding-appointment>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mt-3 pl-3">
+              <button type="submit" class="btn btn-primary btn-submit">SUBMIT</button>
+              <button type="submit" class="btn btn-primary btn-cancel">CANCEL</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+@import "../../styles";
+
+.appointment-container {
+  text-align: center;
+}
+
+
+input {
+  width: 50%;
+}
+
+.input-group {
+  width: 100%;
+
+  label {
+    display: inline-block;
+    margin-right: 2%;
+    text-align: right;
+    width: 30%;
+  }
+}
+
+.btn-container {
+  text-align: center;
+}
+
+button {
+  background-color: $blue-deep;
+  border: 0;
+  border-radius: 50px;
+  color: $white;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 1%;
+  min-width: 175px;
+  padding: 12px;
+}
+
+.btn-cancel {
+  background-color: $grey-md;
+  color: $black;
+
+  // margin-left: 4%;
+}

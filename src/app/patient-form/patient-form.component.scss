@@ -1,0 +1,130 @@
+@import "../../styles";
+
+.patient-form {
+  height: 100%;
+  width: 100%;
+  // overflow-y: scroll;
+}
+
+h4 {
+  background-color: $blue-deep;
+  color: $white;
+}
+
+.personal-info {
+  display: flex;
+}
+
+.input-group {
+  label {
+    display: inline-block;
+    margin-right: 2%;
+    text-align: right;
+    width: 50%;
+  }
+}
+
+// label {
+//   display: inline-block;
+//   margin-right: 2%;
+//   text-align: right;
+//   width: 30%;
+// }
+
+// .record {
+//   // display: flex;
+//   // justify-content: flex-start;
+//   float: left;
+// }
+
+// .record-container {
+//   display: flex;
+// }
+
+.input-record {
+  display: flex;
+  float: left;
+  width: 50%;
+
+  label {
+    display: inline-block;
+    margin-right: 6%;
+    text-align: right;
+    width: 40%;
+  }
+}
+
+// .input-plan {
+//   justify-content: space-between;
+// }
+
+.add-appointment-container {
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 1%;
+  min-width: 175px;
+  padding: 12px;
+}
+
+.btn-add {
+  background-color: $blue-deep;
+  border-radius: 10px;
+  color: $white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid $grey-md;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: $blue-deep;
+  color: $white;
+}
+
+tr:nth-child(even) {
+  background-color: $grey-md;
+}
+
+span {
+  font-size: 20px;
+  justify-content: center;
+
+  .edit:hover {
+    color: $blue-deep;
+    cursor: pointer;
+  }
+
+  .delete {
+    margin-left: 30px;
+  }
+
+  .delete:hover {
+    color: $red-md;
+    cursor: pointer;
+  }
+}
+
+.btn-submit {
+  background-color: $blue-deep;
+  color: $white;
+}
+
+.btn-cancel {
+  background-color: $grey-md;
+  color: $black;
+}
