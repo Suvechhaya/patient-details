@@ -9,7 +9,7 @@ import { PatientFormComponent } from './patient-form/patient-form.component';
 import { PatientRecordComponent } from './patient-record/patient-record.component';
 import { BondingAppointmentComponent } from './bonding-appointment/bonding-appointment.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   entryComponents: [PatientFormComponent, BondingAppointmentComponent],
   exports: [PatientFormComponent, BondingAppointmentComponent],
