@@ -12,7 +12,7 @@
     <div class="col-12 col-md-6 right">
       <div class="w-100">
         <div class="content-right">
-          <h1>Sign in to your Account</h1>
+          <h2>Sign in to your Account</h2>
           <form>
             <div class="row">
               <div class="col-12">
@@ -20,7 +20,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user"></i></div>
                   </div>
-                  <input name="username" type="text" id="username" placeholder="Enter your username here" />
+                  <input name="username" type="text" id="username" placeholder="Enter your username here" [(ngModel)]='this.userData.name' />
                 </div>
               </div>
             </div>
@@ -31,14 +31,14 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-lock"></i></div>
                   </div>
-                  <input name="password" type="text" id="password" placeholder="Enter your password here" />
+                  <input name="password" type="password" id="password" placeholder="Enter your password here" [(ngModel)]='this.userData.password'/>
                 </div>
               </div>
             </div>
 
             <div class="row">
               <div class="col-12 mt-3 pl-3">
-                <button type="submit" class="btn btn-primary btn-sign-in">SIGN IN</button>
+                <button type="submit" class="btn btn-primary btn-sign-in" (click)='loginUser()'>SIGN IN</button>
               </div>
             </div>
           </form>
@@ -47,7 +47,7 @@
             <div class="col-12 mt-3 pl-3">
               <div class="sign-up-option">
                 <span>Don't have an account? </span>
-                <a>Sing Up!</a>
+                <a [routerLink]="['/sign-up']">Sign Up!</a>
               </div>
             </div>
           </div>
