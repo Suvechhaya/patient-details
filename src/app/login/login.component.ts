@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   userData = {
-    name: '',
+    email: '',
     password: ''
   };
   showModal = false;
@@ -23,9 +23,10 @@ export class LoginComponent implements OnInit {
   }
 
   public loginUser() {
-    this.authService.login(this.userData).subscribe(e => {
-        this.router.navigate(['/patient-record']);
-      });
+    this.authService.login(this.userData).subscribe(res => {
+      localStorage.setItem('bearerToken', res.accessToken);
+      this.router.navigate(['/patient-record']);
+    });
   }
 
   showSignUpModal() {

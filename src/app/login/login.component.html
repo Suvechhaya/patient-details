@@ -18,10 +18,13 @@
               <div class="col-12">
                 <div class="input-group mt-3 pl-5">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa fa-user"></i></div>
+                    <div class="input-group-text"><i class="fa fa-envelope"></i></div>
                   </div>
-                  <input name="username" type="text" id="username" placeholder="Enter your username here" [(ngModel)]='this.userData.name' />
+                  <input name="email" type="text" id="email" placeholder="Enter your email here" [(ngModel)]='this.userData.email' #email="ngModel" required />
                 </div>
+                <div *ngIf="email.invalid && email.touched" class="error-msg">
+                    <span>Required!</span>
+                  </div>
               </div>
             </div>
 
@@ -31,8 +34,11 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-lock"></i></div>
                   </div>
-                  <input name="password" type="password" id="password" placeholder="Enter your password here" [(ngModel)]='this.userData.password'/>
+                  <input name="password" type="password" id="password" placeholder="Enter your password here" [(ngModel)]='this.userData.password' #password="ngModel" required />
                 </div>
+                <div *ngIf="password.invalid && password.touched" class="error-msg">
+                    <span>Required!</span>
+                  </div>
               </div>
             </div>
 
