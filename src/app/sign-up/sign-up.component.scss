@@ -54,6 +54,7 @@ input {
   width: 80%;
 
   &:focus {
+    background-color: $grey-lt;
     box-shadow: 0;
     outline: 0;
   }
@@ -61,6 +62,15 @@ input {
 
 i {
   font-size: 20px;
+}
+
+.error-msg {
+  span {
+    color: $orange;
+    float: left;
+    font-size: 14px;
+    padding-left: 15%;
+  }
 }
 
 .btn-sign-up {

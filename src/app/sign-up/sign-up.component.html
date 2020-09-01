@@ -25,7 +25,10 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user"></i></div>
                     </div>
-                    <input name="username" type="text" id="username" [(ngModel)]="userData.name" placeholder="Enter your username here" required/>
+                    <input name="username" type="text" id="username" [(ngModel)]="userData.name" placeholder="Enter your username here" #name="ngModel" required />
+                  </div>
+                  <div *ngIf="name.invalid && name.touched" class="error-msg">
+                    <span >Required!</span>
                   </div>
                 </div>
               </div>
@@ -36,7 +39,10 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-envelope"></i></div>
                     </div>
-                    <input name="email" type="text" id="email" [(ngModel)]="userData.email" placeholder="Enter your email here" required/>
+                    <input name="email" type="text" id="email" [(ngModel)]="userData.email" placeholder="Enter your email here" #email="ngModel" !/>
+                  </div>
+                  <div *ngIf="email.invalid && email.touched" class="error-msg">
+                    <span >Required!</span>
                   </div>
                 </div>
               </div>
@@ -47,7 +53,10 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-lock"></i></div>
                     </div>
-                    <input name="password" type="password" id="password" [(ngModel)]="userData.password" placeholder="Enter your password here" required/>
+                    <input name="password" type="password" id="password" [(ngModel)]="userData.password" placeholder="Enter your password here" #password="ngModel" required/>
+                  </div>
+                  <div *ngIf="password.invalid && password.touched" class="error-msg">
+                    <span >Required!</span>
                   </div>
                 </div>
               </div>
@@ -59,11 +68,14 @@
                       <div class="input-group-text"><i class="fa fa-lock"></i></div>
                     </div>
                     <input
-                      name="confirmpassword"
+                      name="confirmPassword"
                       type="password"
-                      id="confirmpassword"
-                      placeholder="Re-enter your password here" [(ngModel)]="confirmPassword" required
+                      id="confirmPassword"
+                      placeholder="Re-enter your password here" [(ngModel)]="confirmPassword"  required
                     />
+                  </div>
+                  <div *ngIf="checkPassword(confirmPassword, userData.password)" class="error-msg">
+                    <span>Password mismatch!</span>
                   </div>
                 </div>
               </div>

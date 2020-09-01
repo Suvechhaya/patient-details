@@ -39,4 +39,11 @@ export class SignUpComponent implements OnInit {
     return false;
   }
 
+  public checkPassword() {
+    if (this.confirmPassword && this.userData.password && this.confirmPassword !== this.userData.password) {
+      return true;
+    }
+    return false;
+  }
+
 }
