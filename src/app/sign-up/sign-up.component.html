@@ -39,7 +39,7 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-envelope"></i></div>
                     </div>
-                    <input name="email" type="text" id="email" [(ngModel)]="userData.email" placeholder="Enter your email here" #email="ngModel" !/>
+                    <input name="email" type="text" id="email" [(ngModel)]="userData.email" placeholder="Enter your email here" #email="ngModel" />
                   </div>
                   <div *ngIf="email.invalid && email.touched" class="error-msg">
                     <span >Required!</span>
