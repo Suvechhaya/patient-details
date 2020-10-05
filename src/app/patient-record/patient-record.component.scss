@@ -88,9 +88,15 @@ span {
   padding: 12px;
 }
 
+.modal {
+  left: 20%;
+  margin-bottom: 50px;
+  top: 5%;
+}
+
 .modal-dialog {
-  // width: 700px;
-  margin-left: 50%;
   align-self: center;
   display: flex;
+  margin-left: 28%;
+  width: 1000px;
 }

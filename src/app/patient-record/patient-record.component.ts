@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { PatientService } from '../services/patient.service';
+
 
 @Component({
   selector: 'app-patient-record',
@@ -10,13 +11,76 @@ export class PatientRecordComponent implements OnInit {
 
   patientModal = false;
 
-  constructor() { }
+  patientData = [];
+  patientUpdateDetail = {
+    date: '',
+    name: '',
+    address: '',
+    dob: '',
+    telephone: '',
+    occupation: '',
+    medicalStatus: '',
+    description: '',
+    accepted: false,
+    impression: {
+      impression: false,
+      impressionDate: '',
+      paid: false,
+      cashReceived: 0
+    },
+    xrays: {
+      xraysReceived: false,
+      linkToImage: '',
+      cephAnalysis: false
+    },
+    intraOral: {
+      intraOralPictures: false,
+      intraOralPictureDate: ''
+    },
+    extraOral: {
+      extraOralPictures: false,
+      extraOralPictureDate: ''
+    },
+    fillOutManualForm: false,
+    casePresentation: {
+      casePresentation: false,
+      presentedTo: '',
+      casePresentationDate: ''
+    },
+    comment: '',
+    readyForBonding: false,
+    thesis: false
+  };
+
+  isEdit = false;
+
+  constructor(private patientService: PatientService) { }
 
   ngOnInit() {
+    this.getPatientData();
+  }
+
+  public getPatientData() {
+    this.patientService.getPatient().subscribe(data => {
+      this.patientData = data;
+    });
+  }
+
+  public removePatient(id: number) {
+    if (confirm('Are you sure to delete?')) {
+      this.patientService.deletePatient(id).subscribe(res => {
+        this.getPatientData();
+      });
+    }
+  }
+
+  public updatePatientData(patientDetail) {
+    this.patientUpdateDetail = patientDetail;
+    this.isEdit = true;
   }
 
   public addPatient() {
-    this.patientModal = !this.patientModal;
+    this.isEdit = false;
   }
 
 }

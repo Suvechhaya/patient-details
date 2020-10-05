@@ -28,35 +28,23 @@
       <div class="patient-data mt-1">
         <table>
           <tr>
-            <th>id</th>
+            <th>S.N</th>
             <th>Name</th>
             <th>Address</th>
             <th>Telephone</th>
             <th>Action</th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>Ramu</td>
-            <td>Patan</td>
-            <td>123456</td>
+          <tr *ngFor="let patient of patientData">
+            <td>{{ patientData.indexOf(patient) + 1 }}</td>
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.address }}</td>
+            <td>{{ patient.telephone }}</td>
             <td>
               <span class="d-flex">
-                <i class="edit fa fa-edit"></i>
-                <i class="delete fa fa-trash"></i>
+                <i class="edit fa fa-edit" (click)="updatePatientData(patient)"  data-toggle="modal" data-target="#patientFormModal"></i>
+                <i class="delete fa fa-trash" (click)="removePatient(patient._id)"></i>
               </span>
             </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Samu</td>
-            <td>Palpa</td>
-            <td>8987665</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Namu</td>
-            <td>Kathamnudu</td>
-            <td>4567889</td>
           </tr>
         </table>
       </div>
@@ -66,12 +54,11 @@
 
 <!-- -----------MODAL STARTS HERE------------------->
 
-<div class="container mr-5" >
-  <div class="modal fade modal-lg" id="patientFormModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content text-center">
-        <app-patient-form></app-patient-form>
-      </div>
+<div class="container">
+  <div class="modal fade modal-lg" id="patientFormModal" #closeModal>
+    <div class="modal-content">
+      <!-- pass isedit in patient form -->
+      <app-patient-form [patientData]="patientUpdateDetail" [isEditForm]="isEdit"></app-patient-form>
     </div>
   </div>
 </div>
