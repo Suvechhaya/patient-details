@@ -4,7 +4,6 @@ import { LoginComponent } from '../app/login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { PatientFormComponent } from './patient-form/patient-form.component';
 import { PatientRecordComponent } from './patient-record/patient-record.component';
-import { BondingAppointmentComponent } from './bonding-appointment/bonding-appointment.component';
 
 export const routes: Routes = [
   {
@@ -22,10 +21,6 @@ export const routes: Routes = [
   {
     path: 'patient-form',
     component: PatientFormComponent
-  },
-  {
-    path: 'appointment-form',
-    component: BondingAppointmentComponent
   }
 ];
 
