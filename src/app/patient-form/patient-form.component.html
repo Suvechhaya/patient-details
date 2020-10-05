@@ -2,86 +2,196 @@
   <div class="row">
     <div class="col-12">
       <div class="container patient-form">
+        <div class="row">
+          <div class="col-12 mt-4">
+            <h3>Patient Form</h3>
+          </div>
+        </div>
         <form>
+          <!---------------------PERSONAL INFO START--------------------->
           <div class="row">
-            <div class="col-12">
+            <div class="col-6">
               <div class="personal-info">
-                <div class="input-group mt-3">
-                  <label>Patient's picture</label>
-                  <img [src]="imageUrl" (change)="handleFileInput($event)" height="150px">
+                <div class="input-group mt-3 ml-2">
+                  <img [src]="imageUrl" (change)="handleFileInput($event)" height="150px" />
                   <input name="file" type="file" id="image" #Image accept="image/*" />
                 </div>
-
-                <div class="input-group mt-3">
-                  <label>Date</label>
-                  <input name="date" type="date" id="date" />
-                </div>
               </div>
-
-              <div class="personal-info">
+            </div>
+            <div class="col-6">
+              <div class="date-container">
                 <div class="input-group mt-3">
-                  <label>Patient's Name</label>
-                  <input name="name" type="text" id="name" />
+                  <label>*Date</label>
+                  <input name="date" type="date" id="date" [(ngModel)]="patientData.date" #date="ngModel" required />
                 </div>
 
-                <div class="input-group mt-3">
-                  <label>Address</label>
-                  <input name="address" type="text" id="address" />
+                <div *ngIf="date.invalid && date.touched" class="error-msg">
+                  <span>Required!</span>
                 </div>
+
               </div>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-12">
-              <div class="personal-info">
-                <div class="input-group mt-3">
-                  <label>Date of Birth</label>
-                  <input name="dob" type="date" id="dob" />
-                </div>
+          <div class="p-info">
+            <div class="row">
+              <div class="col-6">
+                <div class="personal-info">
+                  <div class="input-group mt-3">
+                    <label>*Name</label>
+                    <input
+                      name="name"
+                      type="text"
+                      id="name"
+                      [(ngModel)]="this.patientData.name"
+                      #name="ngModel"
+                      required
+                    />
+                  </div>
 
-                <div class="input-group mt-3">
-                  <label>Occupation</label>
-                  <input name="occupation" type="text" id="occupation" />
+                  <div *ngIf="name.invalid && name.touched" class="error-msg">
+                    <span>Required!</span>
+                  </div>
+
+                  <div class="personal-info">
+                    <div class="input-group mt-3">
+                      <label>*Date of Birth</label>
+                      <input
+                        name="dob"
+                        type="date"
+                        id="dob"
+                        [(ngModel)]="this.patientData.dob"
+                        #dob="ngModel"
+                        required
+                      />
+                    </div>
+
+                    <div *ngIf="dob.invalid && dob.touched" class="error-msg">
+                      <span>Required!</span>
+                    </div>
+                  </div>
+                  <div class="personal-info">
+                    <div class="input-group mt-3">
+                      <label>*Telephone</label>
+                      <input
+                        name="telephone"
+                        type="text"
+                        id="telephone"
+                        [(ngModel)]="this.patientData.telephone"
+                        #telephone="ngModel"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div *ngIf="telephone.invalid && telephone.touched" class="error-msg">
+                    <span>Required!</span>
+                  </div>
+
+                  <div class="personal-info">
+                    <div class="input-group mt-3">
+                      <label>*Description</label>
+                      <input
+                        name="description"
+                        type="text"
+                        id="description"
+                        [(ngModel)]="this.patientData.description"
+                        #description="ngModel"
+                        required
+                      />
+                    </div>
+
+                    <div *ngIf="description.invalid && description.touched" class="error-msg">
+                      <span>Required!</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              <div class="col-6">
+                <div class="personal-info">
+                  <div class="input-group mt-3">
+                    <label>*Address</label>
+                    <input
+                      name="address"
+                      type="text"
+                      id="address"
+                      [(ngModel)]="this.patientData.address"
+                      #address="ngModel"
+                      required
+                    />
+                  </div>
+
+                  <div *ngIf="address.invalid && address.touched" class="error-msg">
+                    <span>Required!</span>
+                  </div>
+                </div>
+                <div class="personal-info">
+                  <div class="input-group mt-3">
+                    <label>*Occupation</label>
+                    <input
+                      name="occupation"
+                      type="text"
+                      id="occupation"
+                      [(ngModel)]="this.patientData.occupation"
+                      #occupation="ngModel"
+                      required
+                    />
+                  </div>
+
+                  <div *ngIf="occupation.invalid && occupation.touched" class="error-msg">
+                    <span>Required!</span>
+                  </div>
+                </div>
+                <div class="personal-info">
+                  <div class="input-group mt-3">
+                    <label>*Medical Status</label>
+                    <input
+                      name="medstatus"
+                      type="text"
+                      id="medstatus"
+                      [(ngModel)]="this.patientData.medicalStatus"
+                      #medstatus="ngModel"
+                      required
+                    />
+                  </div>
+
+                  <div *ngIf="medstatus.invalid && medstatus.touched" class="error-msg">
+                    <span>Required!</span>
+                  </div>
+                </div>
+                <div class="personal-info">
+                  <div class="input-group mt-3">
+                    <label>*Accepted?</label>
+                    <input
+                      type="radio"
+                      id="yes"
+                      name="radio"
+                      value="yes"
+                      [checked]="patientData.accepted == true"
+                      (change)="isAccepted(true)"
+                    />
+                    <span>Yes</span>
+                    <input
+                      type="radio"
+                      id="no"
+                      name="radio"
+                      value="no"
+                      [checked]="patientData.accepted == false"
+                      (change)="isAccepted(false)"
+                    />
+                    <span>No</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="note-msg">
+                  <div><i>Note: * marked fields are mandatory.</i></div>
+                </div>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-12">
-              <div class="personal-info">
-                <div class="input-group mt-3">
-                  <label>Telephone</label>
-                  <input name="telephone" type="text" id="telephone" />
-                </div>
-
-                <div class="input-group mt-3">
-                  <label>Medical Status</label>
-                  <input name="medstatus" type="text" id="medstatus" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <div class="personal-info">
-                <div class="input-group mt-3">
-                  <label>Description</label>
-                  <input name="description" type="text" id="description" />
-                </div>
-
-                <div class="input-group mt-3">
-                  <label>Accepted?</label>
-                  <input type="radio" id="yes" name="radio" value="yes" />
-                  <span>Yes</span>
-                  <input type="radio" id="no" name="radio" value="no" />
-                  <span>No</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!---------------------RECORD STARTS----------------------------->
 
           <div class="row">
             <div class="col-12 mt-4">
@@ -90,115 +200,211 @@
           </div>
 
           <div class="row">
-            <div class="record">
-              <div class="input-record mt-3">
-                <label>Impression</label>
-                <input name="impression" type="checkbox" id="impression" />
-              </div>
-
-              <div class="input-record mt-3">
-                <label>Date</label>
-                <input name="date" type="date" id="date" />
-              </div>
-
-              <div class="input-record mt-3">
-                <label>Paid</label>
-                <input name="paid" type="checkbox" id="paid" />
-              </div>
-
-              <div class="input-record mt-3">
-                <label>Cash Received</label>
-                <input name="cash" type="text" id="cash" />
-              </div>
-            </div>
-
-            <div class="col-12">
+            <div class="col-6">
               <div class="record">
                 <div class="input-record mt-3">
-                  <label>X-Rays Received</label>
-                  <input name="xrays" type="checkbox" id="xrays" />
+                  <label>Impression</label>
+                  <input
+                    name="impression"
+                    type="checkbox"
+                    id="impression"
+                    [checked]="patientData.impression.impression == true"
+                    (change)="isImpression(!this.patientData.impression.impression)"
+                  />
                 </div>
-
+              </div>
+              <div class="record">
                 <div class="input-record mt-3">
-                  <label>Link to image</label>
-                  <input name="link" type="text" id="link" />
-                </div>
-
-                <div class="input-record mt-3">
-                  <label>Celp Analysis</label>
-                  <input name="celp" type="checkbox" id="celp" />
+                  <label>Paid</label>
+                  <input
+                    name="paid"
+                    type="checkbox"
+                    id="paid"
+                    [checked]="patientData.impression.paid == true"
+                    (change)="isPaid(!this.patientData.impression.paid)"
+                  />
                 </div>
               </div>
             </div>
-
-            <div class="col-12">
+            <div class="col-6">
               <div class="record">
-                <div class="input-record mt-3">
-                  <label>Intra Oral Pictures</label>
-                  <input name="intraoral" type="checkbox" id="intraoral" />
-                </div>
-
                 <div class="input-record mt-3">
                   <label>Date</label>
-                  <input name="intraoraldate" type="date" id="intraoraldate" />
+                  <input
+                    name="impressionDate"
+                    type="date"
+                    id="impressionDate"
+                    [(ngModel)]="patientData['impression']['impressionDate']"
+                  />
                 </div>
               </div>
-            </div>
-
-            <div class="col-12">
               <div class="record">
                 <div class="input-record mt-3">
-                  <label>Extra Oral Pictures</label>
-                  <input name="extraoral" type="checkbox" id="extraoral" />
-                </div>
-
-                <div class="input-record mt-3">
-                  <label>Date</label>
-                  <input name="extraoraldate" type="date" id="extraoraldate" />
+                  <label>Cash Received</label>
+                  <input name="cash" type="text" id="cash" [(ngModel)]="this.patientData.impression.cashReceived" />
                 </div>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-12">
+            <div class="col-6">
               <div class="record">
                 <div class="input-record mt-3">
-                  <label>Fill out manual form</label>
-                  <input name="manual" type="checkbox" id="manual" />
+                  <label>X-Rays Received</label>
+                  <input
+                    name="xrays"
+                    type="checkbox"
+                    id="xrays"
+                    [checked]="patientData.xrays.xraysReceived == true"
+                    (change)="receivedXrays(!this.patientData.xrays.xraysReceived)"
+                  />
+                </div>
+                <div class="input-record mt-3">
+                  <label>Celp Analysis</label>
+                  <input
+                    name="celp"
+                    type="checkbox"
+                    id="celp"
+                    [checked]="patientData.xrays.cephAnalysis == true"
+                    (change)="anayzedCelp(!this.patientData.xrays.cephAnalysis)"
+                  />
                 </div>
               </div>
             </div>
-
-            <div class="col-12">
+            <div class="col-6">
               <div class="record">
-                <div class="input-record mt-3">
-                  <label>Case Presentation</label>
-                  <input name="case" type="checkbox" id="case" />
-                </div>
-
-                <div class="input-record mt-3">
-                  <label>Presented to</label>
-                  <!-- <input name="case" type="submit" id="case" /> -->
-                  <select id="doctor" name="doctor">
-                    <option value="amr">Dr Amr</option>
-                    <option value="shaarawy">Dr Shrerief Shaarawy</option>
-                    <option value="oussey">Dr Oussey</option>
-                    <option value="heba">Dr Heba</option>
-                    <option value="hala">Dr Hala</option>
-                    <option value="kordy">Dr Sherief Kordy</option>
-                    <option value="amira">Dr Amira</option>
-                    <option value="fouad">Dr Fouad</option>
-                  </select>
-                </div>
-
-                <div class="input-record mt-3">
-                  <label>Date</label>
-                  <input name="date" type="date" id="date" />
+                <div class="record">
+                  <div class="input-record mt-3">
+                    <label>Link to image</label>
+                    <input name="link" type="text" id="link" [(ngModel)]="this.patientData.xrays.linkToImage" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Intra Oral Pictures</label>
+                  <input
+                    name="intraoral"
+                    type="checkbox"
+                    id="intraoral"
+                    [checked]="patientData.intraOral.intraOralPictures == true"
+                    (change)="isIntraOralPicture(!this.patientData.intraOral.intraOralPictures)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Date</label>
+                  <input
+                    name="intraoraldate"
+                    type="date"
+                    id="intraoraldate"
+                    [(ngModel)]="this.patientData.intraOral.intraOralPictureDate"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Extra Oral Pictures</label>
+                  <input
+                    name="extraoral"
+                    type="checkbox"
+                    id="extraoral"
+                    [checked]="patientData.extraOral.extraOralPictures == true"
+                    (change)="isExtraOralPicture(!this.patientData.extraOral.extraOralPictures)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Date</label>
+                  <input
+                    name="extraoraldate"
+                    type="date"
+                    id="extraoraldate"
+                    [(ngModel)]="this.patientData.extraOral.extraOralPictureDate"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Fill out manual form</label>
+                  <input
+                    name="manual"
+                    type="checkbox"
+                    id="manual"
+                    [checked]="patientData.fillOutManualForm == true"
+                    (change)="fillManualForm(!this.patientData.fillOutManualForm)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Case Presentation</label>
+                  <input
+                    name="case"
+                    type="checkbox"
+                    id="case"
+                    [checked]="patientData.casePresentation.casePresentation == true"
+                    (change)="presentCase(!this.patientData.casePresentation.casePresentation)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="record">
+                <div class="input-record mt-3">
+                  <label>Date</label>
+                  <input
+                    name="casePresentationDate"
+                    type="date"
+                    id="casePresentationDate"
+                    [(ngModel)]="this.patientData.casePresentation.casePresentationDate"
+                  />
+                </div>
+                <div class="record">
+                  <div class="input-record mt-3">
+                    <label>Presented to</label>
+                    <select id="doctor" name="doctor" [(ngModel)]="this.patientData.casePresentation.presentedTo">
+                      <option value="amr">Dr Amr</option>
+                      <option value="shaarawy">Dr Shrerief Shaarawy</option>
+                      <option value="oussey">Dr Oussey</option>
+                      <option value="heba">Dr Heba</option>
+                      <option value="hala">Dr Hala</option>
+                      <option value="kordy">Dr Sherief Kordy</option>
+                      <option value="amira">Dr Amira</option>
+                      <option value="fouad">Dr Fouad</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-----------------------TREATMENT STARTS---------------------- -->
 
           <div class="row">
             <div class="col-12 mt-4">
@@ -207,39 +413,76 @@
           </div>
 
           <div class="row">
-            <div class="col-12">
+            <div class="col-6">
               <div class="treatment">
-                <div class="input-comment mt-3">
-                  <label>Date</label>
-                  <input name="date" type="date" id="date" />
-                </div>
-
                 <div class="input-plan mt-3">
-                  <label>Comments</label>
-                  <input name="comment" type="textarea" id="comment" placeholder="Add comments here." />
+                  <label style="text-align: left">Comments</label>
+                  <input
+                    name="comment"
+                    type="textarea"
+                    id="comment"
+                    placeholder="Add comments here."
+                    [(ngModel)]="this.patientData.comment"
+                  />
                 </div>
               </div>
-
-              <div class="treatment d-flex">
+              <div class="treatment">
                 <div class="input-plan mt-3">
                   <label>Ready for bonding?</label>
-                  <input name="bonding" type="checkbox" id="bonding" (change)="readyToBond()" />
+                  <input
+                    name="bonding"
+                    type="checkbox"
+                    id="bonding"
+                    [checked]="patientData.readyForBonding == true"
+                    (change)="readyToBond(!this.patientData.readyForBonding)"
+                  />
                 </div>
-
-                <div class="input-plan mt-3 ml-5">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="treatment">
+                <div class="input-plan mt-3">
+                  <label>Date</label>
+                  <input
+                    name="casePresentationDate"
+                    type="date"
+                    id="casePresentationDate"
+                    [(ngModel)]="this.patientData.casePresentation.casePresentationDate"
+                  />
+                </div>
+              </div>
+              <div class="treatment">
+                <div class="input-record mt-3">
                   <label>Thesis?</label>
-                  <input type="radio" id="yes" name="radio" value="yes" />
+                  <input
+                    type="radio"
+                    id="yes"
+                    name="thesisRadio"
+                    value="yes"
+                    [checked]="patientData.thesis == true"
+                    (change)="isThesis(true)"
+                  />
                   <span>Yes</span>
-                  <input type="radio" id="no" name="radio" value="no" />
+                  <input
+                    type="radio"
+                    id="no"
+                    name="thesisRadio"
+                    value="no"
+                    [checked]="patientData.thesis == false"
+                    (change)="isThesis(true)"
+                    (change)="isThesis(false)"
+                  />
                   <span>No</span>
                 </div>
               </div>
             </div>
           </div>
 
+          <!---------------BONDING STARTS--------------------------- -->
+
           <div class="row">
             <div class="col-12 mt-4 mb-2">
-              <div class="add-appointment-container d-flex" *ngIf="bonding">
+              <div class="add-appointment-container d-flex" *ngIf="patientData.readyForBonding">
                 <h5>Bonding appointment Date</h5>
                 <div class="float-right btn-add p-3" (click)="addAppointment()">
                   <i class="fa fa-plus mr-2"></i>ADD APPOINTMENT
@@ -250,18 +493,83 @@
 
           <div class="row">
             <div class="col-12">
-              <div class="bonding-appointment" *ngIf="bonding && appointmentModal">
-                <div *ngFor= 'let vs of visitSummary'>
-                  <app-bonding-appointment></app-bonding-appointment>
+              <div class="bonding-appointment" *ngIf="(patientData.readyForBonding && appointmentModal) || isEditForm">
+                <div *ngIf="patientData['bondingAppointment']">
+                  <div *ngFor="let bond of patientData['bondingAppointment'] | keyvalue">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="input-group mt-3">
+                          <label>Date</label>
+                          <input
+                            name="bondingDate+{{ bond.key }}"
+                            type="date"
+                            id="bondingDate"
+                            [(ngModel)]="patientData['bondingAppointment'][bond.key].bondingAppointmentDate"
+                          />
+                        </div>
+
+                        <div class="input-group mt-3">
+                          <label>Summary</label>
+                          <input
+                            name="summary+{{ bond.key }}"
+                            type="textarea"
+                            [value]="bond.value.summary"
+                            [(ngModel)]="patientData['bondingAppointment'][bond.key].summary"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="input-group mt-3">
+                          <label>Picture</label>
+                          <input
+                            class="mr-1"
+                            name="picture"
+                            type="checkbox"
+                            id="picture"
+                            [checked]="patientData['bondingAppointment'][bond.key].pictures == true"
+                            (change)="bondy(bond.key)"
+                          />
+                        </div>
+
+                        <div class="input-group mt-3">
+                          <label>Next Visit</label>
+                          <input
+                            name="nextDate+{{ bond.key }}"
+                            type="date"
+                            id="nextDate"
+                            [(ngModel)]="patientData['bondingAppointment'][bond.key].nextDate"
+                          />
+                        </div>
+                      </div>
+                      <hr />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-12 mt-3 pl-3">
-              <button type="submit" class="btn btn-primary btn-submit">SUBMIT</button>
-              <button type="submit" class="btn btn-primary btn-cancel">CANCEL</button>
+            <div class="col-12 mt-3">
+              <div class="btn patient-btn">
+                <button *ngIf="!isEditForm" type="submit" class="btn btn-primary btn-submit" (click)="createPatient()">
+                  SUBMIT
+                </button>
+                <button *ngIf="isEditForm" type="submit" class="btn btn-primary btn-submit" (click)="updatePatient()">
+                  SAVE
+                </button>
+                <button
+                  #closeModal
+                  type="button"
+                  aria-label="Close"
+                  aria-hidden="true"
+                  class="btn btn-primary btn-cancel ml-2"
+                  (click)="closeModalForm()"
+                >
+                  CANCEL
+                </button>
+              </div>
             </div>
           </div>
         </form>
